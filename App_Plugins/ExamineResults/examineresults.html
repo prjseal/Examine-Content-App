@@ -1,0 +1,61 @@
+<div class="umb-box" ng-controller="My.CakeContentApp as vm" id="examineresults">
+    <div ng-hide="loading" class="umb-healthcheck-group__details">
+
+        <div class="umb-healthcheck-group__details-group">
+
+            <div class="umb-healthcheck-group__details-group-title">
+                <div class="umb-healthcheck-group__details-group-name">Examine Search Results</div>
+            </div>
+
+            <div class="umb-healthcheck-group__details-checks">
+                <div class="umb-healthcheck-group__details-check">
+                    <div class="umb-healthcheck-group__details-status" ng-if="searcher.name !== 'InternalMemberSearcher'" ng-repeat="searcher in searcherDetails">
+                        <div class="umb-healthcheck-group__details-status-content">
+                            <div class="umb-healthcheck-group__details-status-text">
+                                <h3>{{searcher.name}}</h3>
+                            </div>
+                            <div class="umb-healthcheck-group__details-status-actions">
+                                <div>
+                                    <form>
+                                        <div class="row form-search">
+                                            <div class="span8 input-append">
+                                                <button type="submit" class="btn btn-info" ng-click="search(searcher, $event)" ng-disabled="searcher.isProcessing">Search</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <input type="hidden" name="searchType" id="{{searcher.name}}-luceneSearch" value="lucene" ng-model="searcher.searchType" no-dirty-check />
+                                        </div>
+                                    </form>
+                                    <div class="search-results" ng-show="searcher.isSearching">
+                                        <div ng-show="indexer.isProcessing" class="umb-loader-wrapper" ng-show="indexer.isProcessing">
+                                            <div class="umb-loader"></div>
+                                        </div>
+                                        <table ng-hide="searcher.isProcessing" class="table table-bordered table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="id">Id</th>
+                                                    <th>Values</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="result in searcher.searchResults">
+                                                    <td>{{result.Id}}</td>
+                                                    <td>
+                                                        <span ng-repeat="(key,val) in result.Fields track by $index">
+                                                            <span class=""><em>{{key}}</em>:</span>
+                                                            <span class="text-info">{{val}}</span>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
