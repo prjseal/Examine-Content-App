@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ExamineContentApp</id>
+    <version>1.0.0</version>
+    <title>$title$</title>
+    <authors>Paul Seal</authors>
+    <owners>Paul Seal</owners>
+    <licenseUrl>https://github.com/prjseal/Examine-Content-App/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/prjseal/Examine-Content-App/</projectUrl>
+    <iconUrl>https://github.com/prjseal/Examine-Content-App/blob/master/images/Examine-Content-App.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <tags>Examine Content App Umbraco v8 ExamineContentApp</tags>
+  </metadata>
+  <files>
+    <file src="App_Plugins\ExamineResults\**\*.*" target="content\App_Plugins\ExamineResults" />
+  </files>
+</package>
